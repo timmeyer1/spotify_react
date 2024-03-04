@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAlbumData } from '../redux/album/albumSelector'
 import { fetchAlbums } from '../redux/album/albumSlice'
+import PageLoader from '../components/Loader/PageLoader'
+import { AiFillAlert } from "react-icons/ai";
+
 
 const Home = () => {
   // on récupère le hook useDispatch de react-redux
@@ -16,24 +19,8 @@ const Home = () => {
   const dataAlbum = albums['hydra:member']
   console.log('data albums', albums);
 
-
-
-
-
-
-
-
-
-
-
   return (
-    loading ? <div>Chargement...</div> :
-      dataAlbum && dataAlbum.map((album, index) => (
-        <div key={index}>
-          <h1>{album?.title}</h1>
-          <p>{album?.artist?.biography}</p>
-        </div>
-      ))
+    <div>Home</div>
   )
 }
 
