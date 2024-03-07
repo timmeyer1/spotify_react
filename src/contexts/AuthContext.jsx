@@ -12,7 +12,7 @@ const AuthContext = createContext({
     signOut: async () => { }, //méthode pour se deconnecter
 });
 
-// on définit 
+// on définit la mécanique qui permet de gérer l'authentification
 const AuthContextProvider = ({ children }) => {
     const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
