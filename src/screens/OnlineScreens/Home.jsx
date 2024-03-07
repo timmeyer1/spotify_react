@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectAlbumData } from '../redux/album/albumSelector'
-import { fetchAlbums } from '../redux/album/albumSlice'
-import PageLoader from '../components/Loader/PageLoader'
+import { selectAlbumData } from '../../redux/album/albumSelector'
+import { fetchAlbums } from '../../redux/album/albumSlice'
+import PageLoader from '../../components/Loader/PageLoader'
 import { AiFillAlert } from "react-icons/ai";
 
 
