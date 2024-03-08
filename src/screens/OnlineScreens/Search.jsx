@@ -4,11 +4,11 @@ const Search = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-6 gap-4">
-        <div className="bg-red-500 text-white p-12 rounded-lg">Rock</div>
-        <div className="bg-blue-500 text-white p-12 rounded-lg">Jazz</div>
-        <div className="bg-green text-white p-12 rounded-lg">Blues</div>
-        <div className="bg-yellow-500 text-white p-12 rounded-lg">Pop</div>
-        <div className="bg-purple-500 text-white p-12 rounded-lg">classNameique</div>
+        <div className="bg-red-500 hover:bg-red-700 text-white p-12 rounded-lg">Rock</div>
+        <div className="bg-blue-500 hover:bg-blue-700 text-white p-12 rounded-lg">Jazz</div>
+        <div className="bg-green hover:bg-green_06 text-white p-12 rounded-lg">Blues</div>
+        <div className="bg-yellow-500 hover:bg-yellow-700 text-white p-12 rounded-lg">Pop</div>
+        <div className="bg-purple-500 text-white p-12 rounded-lg">Rap</div>
         <div className="bg-pink-500 text-white p-12 rounded-lg">Electro</div>
         <div className="bg-orange-500 text-white p-12 rounded-lg">Hip Hop</div>
         <div className="bg-teal-500 text-white p-12 rounded-lg">Country</div>
@@ -26,7 +26,7 @@ const Search = () => {
         <div className="bg-gray-600 text-white p-12 rounded-lg">House</div>
         <div className="bg-red-700 text-white p-12 rounded-lg">Trance</div>
         <div className="bg-blue-700 text-white p-12 rounded-lg">Hardcore</div>
-        <div className="bg-green_06 text-white p-12 rounded-lg">DnB (Drum and Bass)</div>
+        <div className="bg-green_06 text-white p-12 rounded-lg">Drum and Bass</div>
         <div className="bg-yellow-700 text-white p-12 rounded-lg">Dubstep</div>
         <div className="bg-purple-700 text-white p-12 rounded-lg">Ambient</div>
         <div className="bg-pink-700 text-white p-12 rounded-lg">Jungle</div>

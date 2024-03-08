@@ -5,6 +5,7 @@ import { fetchAlbums } from '../../redux/album/albumSlice'
 import PageLoader from '../../components/Loader/PageLoader'
 import { AiFillAlert } from "react-icons/ai";
 import AlbumCard from '../../components/AlbumCard'
+import { artistUrl } from '../../constants/apiConstant'
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
     // on récupère notre selector pour avoir accès aux données
     const { albums, loading } = useSelector(selectAlbumData);
     const dataAlbum = albums['hydra:member']
+    const dataArtist = artistUrl['hydra:member']
 
     return (
         loading ? <PageLoader /> :
@@ -28,13 +30,28 @@ const Home = () => {
                 <div className="flex flex-wrap sm:justify-start justify-center gap-8">
                     {/* on va devoir mapper dataAlbum pour parcourir chaque album */}
                     {dataAlbum && dataAlbum.map((data, index) => {
-                        console.log('data', data)
                         return (
                             <AlbumCard
-                            // on passe key en parametre pour que chaque enfant soit unique
-                            key={index}
-                            // on lui passe data comme props de l'album
-                            data={data}
+                                // on passe key en parametre pour que chaque enfant soit unique
+                                key={index}
+                                // on lui passe data comme props de l'album
+                                data={data}
+                            />
+                        )
+                    })}
+                </div>
+                <h2 className='font-bold text-3xl text-white text-left pt-10 mb-10'>
+                    Artistes
+                </h2>
+                <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+                    {/* on va devoir mapper dataAlbum pour parcourir chaque album */}
+                    {dataArtist && dataArtist.map((data, index) => {
+                        return (
+                            <ArtistCard
+                                // on passe key en parametre pour que chaque enfant soit unique
+                                key={index}
+                                // on lui passe data comme props de l'album
+                                data={data}
                             />
                         )
                     })}

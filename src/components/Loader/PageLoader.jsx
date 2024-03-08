@@ -3,7 +3,7 @@ import { Audio } from 'react-loader-spinner'
 
 const PageLoader = () => {
     return (
-        <div className='flex flex-col items-center, justify-center h-[70vh]'>
+        <div className='flex flex-col items-center justify-center h-[70vh]'>
             <Audio
                 height="100"
                 width="100"
