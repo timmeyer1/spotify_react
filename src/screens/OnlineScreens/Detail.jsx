@@ -4,7 +4,7 @@ import { fetchAlbumDetail } from '../../redux/album/albumSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAlbumData } from '../../redux/album/albumSelector';
 import PageLoader from '../../components/Loader/PageLoader';
-import DetailAlbum from '../../components/DetailAlbum/Detail';
+import DetailAlbum from '../../components/DetailAlbum';
 
 const Detail = () => {
     const params = useParams();

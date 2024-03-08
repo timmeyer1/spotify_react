@@ -6,6 +6,7 @@ import PageLoader from '../../components/Loader/PageLoader'
 import { AiFillAlert } from "react-icons/ai";
 import AlbumCard from '../../components/AlbumCard'
 import { artistUrl } from '../../constants/apiConstant'
+import ArtistCard from '../../components/ArtistCard'
 
 
 const Home = () => {
