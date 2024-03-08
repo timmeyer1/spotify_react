@@ -10,6 +10,8 @@ const initialState = {
     activeSong: {}, // chanson en cours de lecture
 }
 
+console.log(initialState)
+
 // création du slice pour la gestion du player
 const playerSlice = createSlice({
     name: "player",
@@ -17,7 +19,7 @@ const playerSlice = createSlice({
     reducers:{
         setActiveSong: (state, action) => {
             // stockage de la chanson en lecture dans activeSong
-            state.activeSong = action.payload?.song[action.payload?.index];
+            state.activeSong = action.payload?.songs[action.payload?.index];
             // stockage du tableau de chansons
             state.currentSongs = action.payload?.data?.songs
             // stockage de l'index
@@ -55,7 +57,7 @@ const playerSlice = createSlice({
 })
 
 // export des actions 
-const { setActiveSong, setActiveAlbum, nextSong, prevSong, playPause } = playerSlice.actions;
+export const { setActiveSong, setActiveAlbum, nextSong, prevSong, playPause } = playerSlice.actions;
 
 // export du reducer
 export default playerSlice.reducer

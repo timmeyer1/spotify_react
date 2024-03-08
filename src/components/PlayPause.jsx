@@ -2,7 +2,7 @@ import React from 'react'
 import { BsPlayCircleFill, BsPauseCircleFill } from 'react-icons/bs'
 
 const PlayPause = ({
-    size = '60px', // permet de définir la taille du bouton (par défaut 60px)
+    size = '50px', // permet de définir la taille du bouton (par défaut 60px)
     isPlaying, // gère l'état si on est en lecture ou en pause
     songs, // tableau des chansons
     activeSong, // chanson actuellement jouée
