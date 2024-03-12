@@ -10,8 +10,6 @@ const initialState = {
     activeSong: {}, // chanson en cours de lecture
 }
 
-console.log(initialState)
-
 // création du slice pour la gestion du player
 const playerSlice = createSlice({
     name: "player",

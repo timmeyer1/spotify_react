@@ -3,7 +3,6 @@ import { albumUrl } from '../../constants/apiConstant'
 import HeaderInfo from './HeaderInfo'
 
 const HeaderDetail = ({dataAlbum}) => {
-    console.log('aaaa', dataAlbum)
     const imgPath = `${albumUrl}/${dataAlbum?.imagePath}`
 
     return (

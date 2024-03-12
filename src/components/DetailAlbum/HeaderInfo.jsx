@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { albumUrl, artistUrl } from '../../constants/apiConstant'
+import PageLoader from '../Loader/PageLoader';
 
 const HeaderInfo = ({ dataAlbum }) => {
 
-    console.log(dataAlbum)
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(false)
+    }, [])
 
     // on récupère la photo d'artiste si elle existe sinon photo album
     const imgPath = dataAlbum?.artist?.imagePath ? `${artistUrl}/${dataAlbum?.artist?.imagePath}` : `${albumUrl}/${dataAlbum?.imagePath}`
@@ -13,7 +18,6 @@ const HeaderInfo = ({ dataAlbum }) => {
 
     // on définit le nombre de titre par album
     const nbTitle = dataAlbum?.songs ? dataAlbum.songs.length > 1 ? dataAlbum.songs.length + ' titres' : dataAlbum.songs.length + ' titre' : 'Aucun titre pour cet album'
-    console.log('cafraezgfeaf', nbTitle)
 
     // petit element graphique pourfaire un point
     const Dot = () => (
@@ -40,6 +44,7 @@ const HeaderInfo = ({ dataAlbum }) => {
 
 
     return (
+        isLoading ? <PageLoader /> :
         dataAlbum &&
         <div className="flex items-center">
             <img src={imgPath} className="w-10 h-10 rounded-full" alt={dataAlbum?.artist?.name ?? 'photo artiste'} />

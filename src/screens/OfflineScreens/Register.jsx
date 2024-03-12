@@ -37,16 +37,16 @@ const Register = () => {
                     setIsLoading(false);
                     navigate('/');
                 } catch (error) {
-                    console.log(`Erreur lors de la création de la session: ${error}`);
+                     (`Erreur lors de la création de la session: ${error}`);
                     setIsLoading(false);
                 }
             } else {
                 setIsLoading(false);
-                console.log(`Erreur lors de la réponse serveur: ${response}`);
+                 (`Erreur lors de la réponse serveur: ${response}`);
             }
         }).catch((error) => { // Correction ici: ajout des parenthèses autour de 'error'
             setIsLoading(false);
-            console.log(`Erreur lors de l'enregistrement de l'user: ${error}`);
+             (`Erreur lors de l'enregistrement de l'user: ${error}`);
         });
     };
 

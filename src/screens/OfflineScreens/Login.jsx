@@ -35,13 +35,13 @@ const Login = () => {
                     navigate('/')
                 } catch (error) {
                     setIsLoading(false);
-                    console.log(`Erreur lors de la création de la session : ${error}`)
+                     (`Erreur lors de la création de la session : ${error}`)
                 }
 
             }
         }).catch((error) => {
             setIsLoading(false);
-            console.log(`Erreur lors de l'enregistrement : ${error}`)
+             (`Erreur lors de l'enregistrement : ${error}`)
         })
 
     }
