@@ -37,7 +37,7 @@ const Register = () => {
                     setIsLoading(false);
                     navigate('/');
                 } catch (error) {
-                     (`Erreur lors de la création de la session: ${error}`);
+                     console.log(`Erreur lors de la création de la session: ${error}`);
                     setIsLoading(false);
                 }
             } else {
@@ -46,7 +46,7 @@ const Register = () => {
             }
         }).catch((error) => { // Correction ici: ajout des parenthèses autour de 'error'
             setIsLoading(false);
-             (`Erreur lors de l'enregistrement de l'user: ${error}`);
+             console.log(`Erreur lors de l'enregistrement de l'user: ${error}`);
         });
     };
 

@@ -53,7 +53,7 @@ export const fetchAlbumDetail = (id) => async dispatch => {
         // on repasse le state loading a false pour signifier qu'on a fini d'attendre
         dispatch(setLoading(false));
     } catch (error) {
-         (`Erreur sur fetchAlbumDetail : ${error}`);
+         console.log(`Erreur sur fetchAlbumDetail : ${error}`);
         dispatch(setLoading(false));
     }
 }

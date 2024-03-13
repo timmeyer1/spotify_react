@@ -26,7 +26,7 @@ const Login = () => {
                 const user = {
                     userId: response.data.id,
                     email: response.data.email,
-                    name: response.data.name
+                    nickname: response.data.nickname
                 }
 
                 try {
@@ -41,7 +41,7 @@ const Login = () => {
             }
         }).catch((error) => {
             setIsLoading(false);
-             (`Erreur lors de l'enregistrement : ${error}`)
+             console.log(`Erreur lors de l'enregistrement : ${error}`)
         })
 
     }
