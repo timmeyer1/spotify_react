@@ -3,6 +3,7 @@ import { useAuthContext } from '../contexts/AuthContext';
 import { RouterProvider } from 'react-router-dom';
 import OnlineRouter from './OnlineRouter';
 import OfflineRouter from './OfflineRouter';
+import { USER_INFOS } from '../constants/appConstant';
 
 // création d'un mini context pour la session
 const SessionContext = createContext({
@@ -23,7 +24,7 @@ const AppRouter = () => {
     const { userId, setUserId, setEmail, setNickname } = useAuthContext();
     // on va regarder si on a des infos dans le localStorage
     const getUserInfos = async () => {
-        const user = JSON.parse(localStorage.getItem('userInfos'));
+        const user = JSON.parse(localStorage.getItem(USER_INFOS));
         if (user) {
             setUserId(user.userId)
             setEmail(user.email)

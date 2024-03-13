@@ -1,6 +1,6 @@
 // ici on recense toutes les routes de notre api
 // on déclare l'url de base de notre api
-export const apiRoot ="http://localhost:32770";
+export const apiRoot ="http://api-spotify-symfony7.lndo.site";
 
 // on déclare l'url de notre api
 export const apiUrl = `${apiRoot}/api`;
