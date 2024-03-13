@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 // on va initialiser nos state dans une constante initialeState
 const initialState = {
-    currentSongs: [], //tableau de chansons
+    currentSong: [], //tableau de chansons
     currentAlbum: [], // album en cours de lecture
     currentIndex: 0, // index de la chanson en cours de lecture
     isActive: false, // état du player
@@ -19,7 +19,7 @@ const playerSlice = createSlice({
             // stockage de la chanson en lecture dans activeSong
             state.activeSong = action.payload?.songs[action.payload?.index];
             // stockage du tableau de chansons
-            state.currentSongs = action.payload?.data?.songs
+            state.currentSong = action.payload?.data?.songs
             // stockage de l'index
             state.currentIndex = action.payload?.index;
             // stockage de l'état du player
@@ -34,7 +34,7 @@ const playerSlice = createSlice({
         // pour avancer la liste de lecture
         nextSong: (state, action) => {
             // on récupère la chanson dans le tableau à l'index donné
-            state.activeSong = state.currentSongs[action.payload];
+            state.activeSong = state.currentSong[action.payload];
             // on stock l'index
             state.currentIndex = action.payload;
             state.isActive = true;
@@ -42,7 +42,7 @@ const playerSlice = createSlice({
         // pour reculer la liste de lecture
         prevSong: (state, action) => {
             // on récupère la chanson dans le tableau à l'index donné
-            state.activeSong = state.currentSongs[action.payload];
+            state.activeSong = state.currentSong[action.payload];
             // on stock l'index
             state.currentIndex = action.payload;
             state.isActive = true;

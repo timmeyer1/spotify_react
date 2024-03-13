@@ -13,9 +13,9 @@ const App = () => {
   // on récupère les données de l'utilisateur depuis le locale storage
   const userInfo = JSON.parse(localStorage.getItem(USER_INFOS));
 
-  const fetchUser = async() => {
+  const fetchUser = async () => {
     const user = await checkUser(userInfo);
-    if(user){
+    if (user) {
       return;
     } else {
       signOut();
@@ -24,12 +24,12 @@ const App = () => {
   }
 
 
-  const {signOut} = useAuthContext();
+  const { signOut } = useAuthContext();
   // on récupère le hook de navigationauthContext
   const navigate = useNavigate();
 
   // récupère activeSong du slice player
-  const {activeSong} = useSelector((state) => state.player);
+  const { activeSong } = useSelector((state) => state.player);
 
   useEffect(() => {
     fetchUser(userInfo);
@@ -47,7 +47,8 @@ const App = () => {
         </div>
       </div>
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 animate-slideup bg-gradient-to-br from-white_01 to-black backdrop-blur-lg rounded-t-3xl z-10">
+        // <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-white_01 to-black backdrop-blur-lg rounded-t-3xl z-10 p-4">
+        <div className="absolute bottom-10 right-20 left-20 bg-gradient-to-br from-white_01 to-black backdrop-blur-lg rounded-full">
           <MusicPlayer />
         </div>
       )}
