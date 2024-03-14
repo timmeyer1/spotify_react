@@ -9,6 +9,8 @@ const albumSlice = createSlice({
         albums: [], // on initialise un tableau vide pour stocker la futur liste d'albums
         loading: false, // on initialise le state loading à false pour pouvoir gérer l'attente des requetes asynchrone
         albumDetail: {},
+        searchAlbum: [],
+        searchArtist: [],
     },
     // méthode qui permet de remplir les states (mise en rayon)
     reducers: {
@@ -20,11 +22,17 @@ const albumSlice = createSlice({
         },
         setAlbumDetail: (state, action) => {
             state.albumDetail = action.payload
+        },
+        setSearchAlbum: (state, action) => {
+            state.searchAlbum = action.payload
+        },
+        setSearchArtist: (state, action) => {
+            state.searchArtist = action.payload
         }
     }
 });
 
-export const { setAlbums, setLoading, setAlbumDetail } = albumSlice.actions;
+export const { setAlbums, setLoading, setAlbumDetail, setSearchAlbum, setSearchArtist } = albumSlice.actions;
 
 // on crée la méthode qui permet de récupérer les données des albums de la BDD
 export const fetchAlbums = () => async dispatch => {
@@ -53,7 +61,25 @@ export const fetchAlbumDetail = (id) => async dispatch => {
         // on repasse le state loading a false pour signifier qu'on a fini d'attendre
         dispatch(setLoading(false));
     } catch (error) {
-         console.log(`Erreur sur fetchAlbumDetail : ${error}`);
+        console.log(`Erreur sur fetchAlbumDetail : ${error}`);
+        dispatch(setLoading(false));
+    }
+}
+
+// on crée la méthode pour faire une recherche d'album
+export const fetchSearch = (searchWord) => async dispatch => {
+    try {
+        dispatch(setLoading(true));
+        const responseAlbums = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}&isActive=true`)
+        const responseArtist = await axios.get(`${apiUrl}/alba?page=1&artist.name=${searchWord}&isActive=true`)
+
+        dispatch(setSearchAlbum(responseAlbums.data));
+        dispatch(setSearchArtist(responseArtist.data));
+
+        dispatch(setLoading(false));
+        
+    } catch (error) {
+        console.log(`Erreur lors de la recherche d'album : ${error}`);
         dispatch(setLoading(false));
     }
 }

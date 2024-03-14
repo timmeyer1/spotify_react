@@ -2,7 +2,6 @@ import axios from "axios";
 import { apiUrl } from "../constants/apiConstant"
 
 export const checkUser = async (userInfo) => {
-    console.log('userInfo', userInfo)
     try {
         // on récupère l'utilisateur dans la bdd avec l'id en session
         const response = await axios.get(`${apiUrl}/users/${userInfo.userId}`);

@@ -1,25 +1,23 @@
 import React from 'react'
-import { artistUrl } from '../constants/apiConstant'
-import { Link } from 'react-router-dom'
+import { artistUrl, imageUrl } from '../constants/apiConstant';
+import { Link } from 'react-router-dom';
 
-const ArtistCard = ({ data }) => {
+const ArtistCard = ({dataArtist}) => {
 
-    // constante qui récupère l'image de l'album
-    const imgPath = `${artistUrl}/${data?.imagePath}`
+    // on déclare notre constante d'image
+    const imgPath = dataArtist?.artist?.imagePath ? `${artistUrl}/${dataArtist?.artist?.imagePath}` : `${imageUrl}/artist.png`;
 
 
-    return (
-        <div className='flex flex-col w-[250px] p-4 bg-white_01 hover:bg-white_05 transition-all ease-out duration-500 animate-slideup rounded-lg cursor-pointer'>
-            <div className="relative w-full flex flex-col">
-                <Link to={`/detail/${data?.artist.id}`} state={{ params: data }} >
-                    <img src={imgPath} alt={data?.artist.name} className='card-sh rounded-lg object-cover' />
-                </Link>
-                <div className="mt-4 flex flex-col">
-                    <p className="text-white text-xl truncate font-bold">{data?.artist.name}</p>
-                </div>
+  return (
+    <Link to={`/artist-detail/${dataArtist?.artist?.id}`}>
+        <div className="flex flex-col justify-center items-center bg-black rounded-lg shadow-lg p-4">
+            <div className="flex flex-col justify-center items-center">
+                <img src={imgPath} alt={dataArtist?.artist?.name} className="rounded-full w-40 h-40 object-cover"/>
+                <h3 className="font-bold text-xl text-white text-center mt-2">{dataArtist?.artist?.name}</h3>
             </div>
         </div>
-    )
+    </Link>
+  )
 }
 
 export default ArtistCard
