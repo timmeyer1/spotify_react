@@ -7,7 +7,7 @@ import Library from "../screens/OnlineScreens/Library";
 import Playlist from "../screens/OnlineScreens/Playlist";
 import Wishlist from "../screens/OnlineScreens/Wishlist";
 import Detail from "../screens/OnlineScreens/Detail";
-import ArtistDetail from "../screens/OnlineScreens/ArtistDetail";
+import DetailArtist from "../components/DetailArtist";
 
 const OnlineRouter = createBrowserRouter([
     {
@@ -45,7 +45,7 @@ const OnlineRouter = createBrowserRouter([
             },
             {
                 path: "/artist-detail/:id",
-                element: <ArtistDetail />
+                element: <DetailArtist />
             }
         
         ]

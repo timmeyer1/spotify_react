@@ -14,8 +14,6 @@ const SearchView = () => {
     const dataAlbum = searchAlbum['hydra:member'];
     //on recupère le tableau de donnée de searchArtist
     const dataArtist = searchArtist['hydra:member'];
-    console.log('AAAAAAAAAAAAAAAAAAAAA', dataAlbum);
-    console.log('BBBBBBBBBBBBBBBBBBBBBB', dataArtist);
  
   return (
     <>

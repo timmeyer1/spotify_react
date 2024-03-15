@@ -13,7 +13,7 @@ const Home = () => {
     const dispatch = useDispatch()
 
     // on doit récupérer les infos du slicePlayer
-    const { activeSong, isPlaying} = useSelector(state => state.player)
+    const { activeSong, isPlaying } = useSelector(state => state.player)
 
     useEffect(() => {
         dispatch(fetchAlbums()) // permet de mettre a jour les states albums et loading de albumSlice
@@ -55,17 +55,11 @@ const Home = () => {
                     Artistes
                 </h2>
                 <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-                    {/* on va devoir mapper dataAlbum pour parcourir chaque album */}
-                    {dataArtist && dataArtist.map((data, index) => {
-                        return (
-                            <ArtistCard
-                                // on passe key en parametre pour que chaque enfant soit unique
-                                key={index}
-                                // on lui passe data comme props de l'album
-                                data={data}
-                            />
-                        )
-                    })}
+                    {dataArtist && dataArtist.map((data, index) => (
+                        <div key={`artist_${index}`} className='p-3 m-3'>
+                            <ArtistCard dataArtist={data} />
+                        </div>
+                    ))}
                 </div>
             </div>
     )

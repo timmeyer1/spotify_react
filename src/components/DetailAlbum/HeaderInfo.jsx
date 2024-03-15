@@ -48,8 +48,8 @@ const HeaderInfo = ({ dataAlbum }) => {
         isLoading ? <PageLoader /> :
         dataAlbum &&
         <div className="flex items-center">
-            <Link to='#'><img src={imgPath} className="w-10 h-10 rounded-full" alt={dataAlbum?.artist?.name ?? 'photo artiste'} /></Link>
-            <Link to='#'>
+            <Link to={`/artist-detail/${dataAlbum?.artist?.id}`}><img src={imgPath} className="w-10 h-10 rounded-full" alt={dataAlbum?.artist?.name ?? 'photo artiste'} /></Link>
+            <Link to={`/artist-detail/${dataAlbum?.artist?.id}`}>
                 <p className="font-bold text-base p-1">{dataAlbum?.artist?.name ?? 'nom artiste'}</p>
             </Link>
             <Dot />
