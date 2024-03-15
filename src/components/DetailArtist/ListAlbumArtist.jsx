@@ -10,7 +10,7 @@ const ListAlbumArtist = ({ dataArtist }) => {
 
     return (
         <>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap gap-8">
                 {albums && albums?.map((data, index) => (
                     <AlbumCard key={index} data={data} songs={data?.songs} isPlaying={isPlaying} activeSong={activeSong} index={index} artist={dataArtist?.name}/>
                 ))}

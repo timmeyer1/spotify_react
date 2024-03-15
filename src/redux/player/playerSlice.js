@@ -5,6 +5,7 @@ const initialState = {
     currentSong: [], //tableau de chansons
     currentAlbum: [], // album en cours de lecture
     currentIndex: 0, // index de la chanson en cours de lecture
+    currentArtist: '', //artiste en cours de lecture
     isActive: false, // état du player
     isPlaying: false, // etat de lecture
     activeSong: {}, // chanson en cours de lecture
@@ -50,12 +51,16 @@ const playerSlice = createSlice({
 
         playPause: (state, action) => {
             state.isPlaying = action.payload
+        },
+        
+        setCurrentArtist: (state, action) => {
+            state.currentArtist = action.payload
         }
     }
 })
 
 // export des actions 
-export const { setActiveSong, setActiveAlbum, nextSong, prevSong, playPause } = playerSlice.actions;
+export const { setActiveSong, setActiveAlbum, nextSong, prevSong, playPause, setCurrentArtist } = playerSlice.actions;
 
 // export du reducer
 export default playerSlice.reducer
