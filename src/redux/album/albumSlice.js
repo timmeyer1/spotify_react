@@ -11,6 +11,7 @@ const albumSlice = createSlice({
         albumDetail: {},
         searchAlbum: [],
         searchArtist: [],
+        searchTitle: [],
     },
     // méthode qui permet de remplir les states (mise en rayon)
     reducers: {
@@ -28,11 +29,14 @@ const albumSlice = createSlice({
         },
         setSearchArtist: (state, action) => {
             state.searchArtist = action.payload
+        },
+        setSearchTitle: (state, action) => {
+            state.searchTitle = action.payload
         }
     }
 });
 
-export const { setAlbums, setLoading, setAlbumDetail, setSearchAlbum, setSearchArtist } = albumSlice.actions;
+export const { setAlbums, setLoading, setAlbumDetail, setSearchAlbum, setSearchArtist, setSearchTitle } = albumSlice.actions;
 
 // on crée la méthode qui permet de récupérer les données des albums de la BDD
 export const fetchAlbums = () => async dispatch => {
@@ -71,10 +75,12 @@ export const fetchSearch = (searchWord) => async dispatch => {
     try {
         dispatch(setLoading(true));
         const responseAlbums = await axios.get(`${apiUrl}/alba?page=1&title=${searchWord}&isActive=true`)
-        const responseArtist = await axios.get(`${apiUrl}/alba?page=1&artist.name=${searchWord}&isActive=true`)
+        const responseArtist = await axios.get(`${apiUrl}/artists?page=1&name=${searchWord}&albums.isActive=true`)
+        const responseTitle = await axios.get(`${apiUrl}/alba?page=1&songs.title=${searchWord}&isActive=true`)
 
         dispatch(setSearchAlbum(responseAlbums.data));
         dispatch(setSearchArtist(responseArtist.data));
+        dispatch(setSearchTitle(responseTitle.data));
 
         dispatch(setLoading(false));
         
