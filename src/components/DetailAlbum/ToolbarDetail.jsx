@@ -43,7 +43,7 @@ const ToolbarDetail = ({ dataAlbum }) => {
   const checkFavorite = () => {
     if(userFavorite){
       const idArray = userFavorite.map((item)=> `/api/alba/${item.id}`);
-      setListArray([...new Set(idArray)])
+      setListArray([ ... new Set(idArray)])
 
       if(idArray.includes(`/api/alba/${albumId}`)) setIsInList(true);
     }
@@ -61,6 +61,7 @@ const ToolbarDetail = ({ dataAlbum }) => {
     dispatch(playPause(true));
   }
 
+  //méthode pour gérer le favorie
   //méthode pour gérer le favorie
   const toggleFavorite = async () => {
     setIsInList(!isInList);

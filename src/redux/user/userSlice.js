@@ -22,13 +22,14 @@ export const {setLoading, setUserFavorite} = userSlice.actions;
 
 export const fetchUserFavorite = (id) => async dispatch => {
     try {
-        dispatch(setLoading(true));
-        const response = await axios.get(`${apiUrl}/users?page=1&id=${id}`)
-        dispatch(setUserFavorite(response.data.albums));
-        dispatch(setLoading(false));
+      dispatch(setLoading(true));
+      const response = await axios.get(`${apiUrl}/users?page=1&id=${id}`)
+  
+      dispatch(setUserFavorite(response.data['hydra:member'][0].albums));
+      dispatch(setLoading(false));
     } catch (error) {
-        console.log(`Erreur lors du fetchUserFavorite : ${error}`);
+      console.log(`Erreur lors du fetchUserFavorite : ${error}`)
     }
-}
+  }
 
 export default userSlice.reducer
