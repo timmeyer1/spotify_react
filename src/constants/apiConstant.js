@@ -9,7 +9,7 @@ export const apiUrl = `${apiRoot}/api`;
 export const imageUrl = `${apiRoot}/images`;
 
 // url pour les avatars 
-export const avatarUrl = `${apiRoot}/upload/images/avatars`;
+export const avatarUrl = `${apiRoot}/images/avatars`;
 
 // url pour les images d'albums
 export const albumUrl = `${apiRoot}/upload/images/albums`;
