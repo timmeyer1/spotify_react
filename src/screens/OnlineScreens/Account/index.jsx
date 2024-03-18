@@ -41,7 +41,7 @@ const Account = () => {
                 <p className="text-xl font-bold mt-5">Pseudo: <span className="text-green">{user?.nickname ?? 'Pas de pseudo'}</span></p>
                 <p className="text-xl font-bold mt-5">Email: <span className="text-green">{user?.email ?? 'Email inexistant'}</span></p>
                 <p className="text-xl font-bold mt-5">Mot de passe: <span className='text-green'>*******</span></p>
-                <Link to="#" className="absolute bottom-0 right-0 border rounded-full p-2 cursor-pointer hover:bg-green_06">
+                <Link to="/edit-info" className="absolute bottom-0 right-0 border rounded-full p-2 cursor-pointer hover:bg-green_06">
                     <BsFillPencilFill size={20} />
                 </Link>
             </div>
